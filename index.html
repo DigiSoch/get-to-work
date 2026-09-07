@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Webpage Layout</title>
+    <style>
+        /* --- Base Reset & Typography --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Header & Navigation --- */
+        .header {
+            background-color: #1a252f;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+        }
+
+        .logo a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            color: #3498db;
+        }
+
+        /* Mobile Menu Toggle (Hidden by default) */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #ffffff;
+            border-radius: 2px;
+            transition: 0.3s ease;
+        }
+
+        /* --- Main Content Section --- */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .card h2 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #1a252f;
+            color: #7f8c8d;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Breakpoints (Mobile Optimization) --- */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: -100%;
+                flex-direction: column;
+                background-color: #1a252f;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+                transition: 0.4s ease;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-item {
+                padding: 1.5rem 0;
+                border-bottom: 1px solid #2c3e50;
+            }
+
+            /* Toggle class to show menu via JavaScript */
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            /* Visual effect for the active hamburger button */
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="#">Easy To Work</a>
+            </div>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <ul class="nav-menu" id="nav-links">
+                <li class="nav-item"><a href="#">Home</a></li>
+                <!-- <li class="nav-item"><a href="#">Tutorial</a></li> -->
+                <li class="nav-item"><a href="/blogs/blogs.html">Tutorial</a></li>
+                <li class="nav-item"><a href="#">About</a></li>
+                <li class="nav-item"><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <section class="hero">
+            <h1>Welcome to the Modern Web Platform</h1>
+            <p>A simple, responsive layout utilizing standard flexbox and CSS grid structures.</p>
+        </section>
+
+        <section class="content-grid">
+            <div class="card">
+                <h2>Scalable Layouts</h2>
+                <p>This layout uses relative units and CSS media queries. Try resizing your browser window or changing your device orientation to see the elements scale dynamically.</p>
+            </div>
+            <div class="card">
+                <h2>Mobile-First Ready</h2>
+                <p>When viewed on standard tablet or mobile screens, the top navigation links compress into an isolated, clean slide-down navigation menu block.</p>
+            </div>
+            <div class="card">
+                <h2>Pure Clean Code</h2>
+                <p>Built with semantic HTML5 elements (`&lt;header&gt;`, `&lt;nav&gt;`, `&lt;main&gt;`) to maximize search engine discoverability and assistive screen reader accessibility.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 easytowork Platform. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Interaction -->
+    <script>
+        const menuToggle = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
