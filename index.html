@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Webpage Layout</title>
+    <title>gettowork</title>
     <style>
         /* --- Base Reset & Typography --- */
         * {
@@ -12,11 +12,19 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        main {
+    flex: 1;                 /* take remaining space */
+    padding: 20px;
+  }
         body {
-            background-color: #f4f6f9;
+            /* background-color: #f4f6f9; */
+            background-image: url(backgroud.jpeg);
             color: #333;
             line-height: 1.6;
+             margin: 0;
+            min-height: 100vh;       /* full viewport height */
+            display: flex;
+            flex-direction: column;  /* stack header, content, footer */
         }
 
         /* --- Header & Navigation --- */
@@ -128,6 +136,7 @@
             padding: 1.5rem;
             margin-top: 4rem;
             font-size: 0.9rem;
+            padding: 10px;
         }
 
         /* --- Responsive Breakpoints (Mobile Optimization) --- */
@@ -199,11 +208,11 @@
     <main class="container">
         <section class="hero">
             <h1>Welcome to the Easy World</h1>
-            <p>A simple webpage to learn complete topic using markmap and mini notes</p>
+            <p>A simple webpage to learn complex topic using markmap( markdown + minimap) and mini notes</p>
         </section>
 
         <section class="content-grid">
-            <div class="card">
+            <!-- <div class="card">
                 <h2>Created with Markmap</h2>
                 <p></p>
             </div>
@@ -214,8 +223,8 @@
             <div class="card">
                 <h2>Pure Clean Code</h2>
                 <p></p>
-            </div>
-        </section>
+            </div> -->
+        </section> 
     </main>
 
     <!-- Footer -->
